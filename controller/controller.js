@@ -14,7 +14,7 @@ const SignUp = async (req, res) => {
         const {email, firstName, lastName, password, confirmPassword, radio} = req.body
 
         if(!email || !firstName || !lastName || !password || !confirmPassword || !radio){
-            errors.push('All fields are required!')
+          errors.push('All fields are required!')
         }
 
         const user = await User.findOne({email})
