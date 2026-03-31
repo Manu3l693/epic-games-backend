@@ -6,7 +6,11 @@ const cookieParser = require('cookie-parser')
 const connectDB = require('./connect/connectDB.js')
 const router = require('./router/router.js')
 const gameRouter1 = require('./router/game.js')
-
+const paymentRouter = require('./router/payment.js')
+const cartRouter = require('./router/cartRoutes.js')
+const wishlistRouter = require('./router/wishlistRoutes.js')
+const profileRouter = require('./router/profileRoutes.js')
+const sliderRouter = require('./router/sliderRoutes.js')
 
 const app = express()
 app.use(cors({
@@ -22,6 +26,11 @@ dotenv.config()
 
 app.use('/api/auth', router)
 app.use('/api/games', gameRouter1)
+app.use('/api', paymentRouter)
+app.use('/api/cart', cartRouter)
+app.use('/api/wishlist', wishlistRouter)
+app.use('/api/profile', profileRouter)
+app.use('/api/slider', sliderRouter)
 
 const PORT = process.env.PORT || 5000
 
